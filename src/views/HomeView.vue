@@ -1,18 +1,33 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <header>顶部导航栏</header>
+  <section class="app-wrapper">
+    <aside class="sidebar-container">侧边菜单栏</aside>
+    <section>内容主体</section>
+  </section>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "HomeView",
-  components: {
-    HelloWorld,
-  },
-});
+  name: 'HomeView',
+  components: {}
+})
 </script>
+
+<style lang="scss" scoped>
+@import '~@/styles/variables.scss';
+
+header {
+  background-color: #{$headerBgColor};
+  height: #{$headerHeight};
+}
+.app-wrapper {
+  display: flex;
+  height: calc(100vh - #{$headerHeight});
+  .sidebar-container {
+    width: #{$sidebarWidth};
+    background-color: #{$sidebarBgColor};
+  }
+}
+</style>
